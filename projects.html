@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <script type='text/javascript' language='javascript'  src="assets/js/main.js"></script>
+	</head>
+	<body class="is-preload">
+        <div id="mySidenav" class="sidenav">
+  <a href="index.html">Main</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
+  <a href="research.html">Research</a>
+            <a href="projects.html">Projects</a>
+            <!--<a href="cv.html">CV</a>-->
+        </div>
+<div id="main">
+    <h1  >Projects</h1>
+    <p>This is where I put any supplementary materials and resources I use in my work. I primarily use this page to showcase <a target="_blank" rel="noopener noreferrer"  href="https://www.sagemath.org/">Sage</a> and/or jupyter notebook files I use as proof of concept, tutorials, or models for dynamical systems. The website provides instructions on how to get Sage up and running on your system. I also provide pdf exports of most of these notebooks, I'll attach them below. </p>
+    
+    
+    <h2>Necker Cube Surface</h2>
+    <center>
+    <div class="imgContainer">
+        <img width="100%" height="100%" src=images/necker.png>
+    </div>
+        </center>
+    <p>
+    The Necker cube surface is an infinite periodic Euclidean cone surface homeomorphic to the plane which is tiled by squares meeting three or six to a vertex. The Necker cube surface depicted below is a variant of a family of famous illusions due to Swiss crystallographer Louis A. Necker. However, the pattern has been used as a tiling pattern (called the rhombile tiling) for floors since the ancient Greeks. Afterwards, the surface received a brief mention in Popular Science Monthly in 1899, in an article called The "Mind's Eye" exhibiting a variety of optical illusions. This periodic pattern can be spotted in numerous works by M.C. Escher, and is the game board in the cabinet arcade classic, Q*bert. The illusion of cubes that may alternately be seen as popping in or out of the page captured the interest of people throughout the millennia, but has rarely been considered an object of mathematical study. Its geometric structure, when realized as a flat surface, reveals a deep connection between the symmetries of the surface and the dynamics of its geodesic flow. A paper of mine and Dr. Pat Hooper's that fully characterizes the dynamics of the geodesic flow can be found here: <a target="_blank" rel="noopener noreferrer" href ="https://arxiv.org/abs/2310.03115">ArXiv:2310.03115</a>. We prove that there is a countable, dense set of directions that are periodic and drift periodic characterized entirely by the parities of trajectory's "slope" components. We also prove results surrounding ergodicity, diffusion, and closed trajectory symmetries.
+        
+    <p>Pictured below are some examples of geodesics on this surface of slopes 71/73,15/13, and 4/11, in that order. See if you can figure out what about these slopes determines whether the trajectory closes or drifts forever.</p>
+    <center>
+    <div class="imgContainer">
+        <img width="25%" height="25%" src=images/closednecker.png>
+        <img width="25%" height="25%" src=images/closednecker2.png>
+        <img width="25%" height="25%" src=images/driftnecker3.png></div></center>
+    <p>
+        To learn about how we got these images, I put together a SAGE jupyter notebook file <a target="_blank" rel="noopener noreferrer" href ="files/NeckerCubeSurfaceTrajectories.ipynb">here</a> and a pdf of it <a target="_blank" rel="noopener noreferrer" href ="files/NCSGeodesics.pdf">here</a>. Note that you absolutely need to have flatsurf installed in order to make this work. For instructions on how to get flatsurf installed on your specific operating system, check out <a target="_blank" rel="noopener noreferrer" href ="http://wphooper.com/flatsurf/">this informative link</a> on Dr. Pat Hooper's website.
+        </p>
+        
+        <h2>Brauer Algebra Idempotents</h2>
+    
+        <center><div><img width="80%" height="80%" src=images/brauer_formula.png></div></center>
+    
+        
+        <p>As part of my summer internship in 2019, I worked with <a target="_blank" rel="noopener noreferrer" href ="https://people.reed.edu/~zdaugherty/">Dr.Zajj Daugherty</a> to implement the idempotents of the semisimple Brauer Algebra by way of combinatorial representation theory. I've split up the work into three parts as individual SAGE jupyter notebooks. <a target="_blank" rel="noopener noreferrer" href ="files/BAPart1.ipynb">Part 1</a> introduces the reader to the basic objects of study and tries to motivate the use of the double centralizer theorem to characterize algebra modules. <a target="_blank" rel="noopener noreferrer" href ="files/BAPart2.ipynb">Part 2</a> looks to use the already implemented symmetric group algebra idempontents to decompose a self-tensored vector space. And finally, <a target="_blank" rel="noopener noreferrer" href ="files/BAPart3.ipynb">Part 3</a>  implements well-known combinatorial methods to calculate and verify idempotents of the semisimple Brauer algebra (for nice deformation parameters). The three parts have been combined and exported to a pdf document <a target="_blank" rel="noopener noreferrer" href ="files/BrauerAlgebraPaper.pdf">here</a>.
+
+    </p>
+            
+            
+            
+    
+    
+            
+    
+    
+    
+<p>            
+For those interested in working on the implementation as an object call in SAGE, a github ticket exists <a target="_blank" rel="noopener noreferrer" href ="https://github.com/sagemath/sage/issues/28279">here</a>. I would also like to remark that these idempotents allow us to easily work out a decomposition into sums of copies of isotypic components by passing them through a representation, and determining the rank of the matrix. These idempotents then project onto some multiple of an irreducible algebra module. For those interested in the <a target="_blank" rel="noopener noreferrer" href ="https://en.wikipedia.org/wiki/Kronecker_coefficient">Kronecker Coefficient Problem</a>, note that the Partition Algebra centralizes the Symmetric Group Algebra. As per Schur-Weyl duality, this means that the dimensions of the Partition algebra corresponding to a particular idempodent are dual to the multiplicities of the irreducible symmetric group component in the tensor product decomposition. By computing these values in Sage, we would obtain far more data to fully tackle the problem. These ideas can be traced back to the following <a target="_blank" rel="noopener noreferrer" href ="https://arxiv.org/abs/1210.5579">paper</a> by Bowman, De Visscher, and Orellana.</p>
+
+    <h2>Horseshoes, And Their Spectra </h2>
+The <a target="_blank" rel="noopener noreferrer" href ="https://en.wikipedia.org/wiki/Horseshoe_map">horseshoe map</a> was introduced by Stephen Smale, and is one of the most famous examples of an invertible, differentiable, two-dimensional chaotic system whose invariant set is conjugate to the two-sided shift map of two symbols. It has since been generalized and certain regularity assumptions have been tested relentlessly. Here is an example of a linear horseshoe of three symbols:
+    <center><div><img width="50%" height="50%" src="images/figure_2_8_21B.png"></div></center>
+    <p>
+    The invariant set of such a map has a "tangent space" that can be decomposed into a sum of stable (horiztonal) and unstable (vertical) vector fields that are preserved by the derivative of the map (always a diagonal matrix). The Lyapunov exponents restricted to these stable and unstable spaces (rate of separation of infinitesimally close trajectories) of the map are therefore entirely determined by the absolute value of these diagonal entries. The set of all such exponents are thus a point in the plane. When we further generalize and allow piecewise linearity of the horseshoe, we get a convex spectra of exponenents in the plane. We call this set the Lyapunov spectrum of the map. If we consider the set M of (Borel) invariant probability measures (measures that are preserved by the horseshoe map and acts as a probability measure on the invariant set), we can measure the integral (w.r.t. the measure) of the logarithm of the absolute value of the derivatives restricted to these subspaces and obtain a point in the plane called a rotation vector. This is the generalization of the Lyapunov spectrum that produces the same convex set for piecewise linear horseshoes. We call this the rotation set, R.
+    </p>
+    
+    <p>
+    The entropy spectrum of the horseshoe is defined as the supremum of measure-theoretic entropies of the horseshoe that attains a particular rotation vector in R. For a horsehoe map that is Holder with coefficient greater than 1, this coincides with the definition of topological entropy of the map restricted to the points in the system that attain this Lyapunov exponent. This is an important form of dissecting a hyperbolic system into its most primitive components and classification of such systems.
+    </p>
+    
+        <center><div><img width="50%" height="50%" src="images/rotation_set_final.png"></div></center>
+
+    
+    <p>Its known that this entropy spectrum map is continuous on the interior of the Lyapunov spectrum. And, in the case of a piecewise linear horseshow, it is continuous on its boundary as well. What is unknown is whether there exists a horseshoe whose entropy spectrum is discontiniuous on the boundary of the rotation set. Using regularity results of the horseshoe, Christian Wolf, Joe Winters, and I build a recursive sequence of piecewise linear horseshoes that converges to a twice-differentiable, nonlinear dynamical system with all of the same topological properties through a series of local perturbations or "surgeries". However, the spectrum of Lyapunov exponenents is obtained as the convex hull of countably many extrema (with a new extrema added with every iteration). We fix one extreme point to have positive topological entropy (corresponds to a subshift of finite type), and show that the entropy of the additional extremal points are all zero. This produces a theoretical horseshoe with a discontinuous entropy spectrum. The paper can be found here: <a target="_blank" rel="noopener noreferrer" href ="https://arxiv.org/abs/1910.05837">ArXiv:1910.05837</a>. </p>
+    
+    
+    <h2>Linear Stochastic Differential Equations in Python</h2>
+    <center><div><img width="50%" height="50%" src="images/stochasticdiffeq.png"></div></center>
+    
+    As an adaption of Dr. Jay Jorgenson's MATLAB codes, I wanted to see if I could get some quick and dirty python versions of an introductory example to the topic of stochastic differential equations. Click for the <a target="_blank" rel="noopener noreferrer" href ="files/PythonStochasticDiffEq.ipynb">notebook file</a>, or the <a target="_blank" rel="noopener noreferrer" href ="files/PythonStochasticDiffEq.pdf">exported pdf</a>. This does not require SAGE to run, and can be easily adapted to nonlinear equations.
+    
+</div>
+		<!-- Scripts -->
+
+	</body>
+</html>
