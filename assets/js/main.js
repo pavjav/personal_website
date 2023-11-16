@@ -6,6 +6,8 @@ function detectMobile() {
     if(check){
         document.getElementById("mySidenav").style.width = "206px";
         document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidenav").style.display = "none";
+
         document.getElementById("myClsdSideNav").style.width = "55px";
         document.getElementById("myClsdSideNav").style.height = "55px";
     }
@@ -19,17 +21,23 @@ function detectMobile() {
 }
 
 function openNav() {
+    document.getElementById("mySidenav").style.display = "block"
   document.getElementById("mySidenav").style.width = "206px";
         if(check){
+            document.getElementById("mySidenav").style.display = "block";
         document.getElementById("mySidenav").style.width = "206px";
     }
 document.getElementById("myClsdSideNav").style.width = "0";
+    document.getElementById("myClsdSideNav").style.height = "0";
+    document.getElementById("myClsdSideNav").style.display = "none";
     
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
   document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("myClsdSideNav").style.display = "block";
     document.getElementById("myClsdSideNav").style.width = "3%";
             if(check){
         document.getElementById("myClsdSideNav").style.width = "55px";
