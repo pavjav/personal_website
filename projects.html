@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
         <script type='text/javascript' language='javascript'  src="assets/js/main.js"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 	</head>
 	<body class="is-preload" onload="detectMobile()">
         <div id="mySidenav" class="sidenav">
@@ -27,9 +30,68 @@
         </div>
 <div id="main">
     <h1  >Projects</h1>
-    <p>This is where I put any supplementary materials and resources I use in my work. I primarily use this page to showcase <a target="_blank" rel="noopener noreferrer"  href="https://www.sagemath.org/">Sage</a> and/or jupyter notebook files I use as proof of concept, tutorials, or models for dynamical systems. The website provides instructions on how to get Sage up and running on your system. I also provide pdf exports of most of these notebooks, I'll attach them below. </p>
+    <p>This is where I put any supplementary materials and resources I use in my work. I primarily use this page to showcase <a target="_blank" rel="noopener noreferrer"  href="https://www.sagemath.org/">Sage</a> and/or jupyter notebook files I use as proof of concept, tutorials, or models for dynamical systems. The website provides instructions on how to get Sage up and running on your system. I also provide pdf/html exports of most of these notebooks that anyone can view, I'll attach them below. </p>
     
     
+        <h2> Deep Learning Kernel Functions (<a target="_blank" rel="noopener noreferrer" href ="files/Kernel_Learning_Model.html">Interactive HTML</a> | <a target="_blank" rel="noopener noreferrer" href ="files/Kernel_Learning_Model.ipynb">Jupyter Notebook</a>)</h2>
+    
+    <p>This deep learning framework is made entirely in PyTorch 2.1.1 and makes use of a suite of different symbolic differentiation tools to produce these Neural Networks. I introduce some of the constraints we need to make on weights and quickly justify why these assumptions ensure we're truly getting initial laws and Markov kernels. View the HTML link above for a more detailed treatment of kernels, generalizations of kernels, and applications.</p>
+    <p>
+        Consider the measure space \( (\mathcal{X},\mathcal{F},m)\). A Markov kernel function is a function 
+        
+        \[k:\mathcal{X}\times\mathcal{X}\to \mathbf{R}\]
+        
+        that is measurable in both coordinates such that 
+
+\[A\mapsto \int_A k(y,x) m(dy)\]
+
+is a probability measure for every \(x\in \mathcal{X}\) and for every \(A\in \mathcal{F}\), 
+
+\[ x\mapsto \int_A k(y,x) m(dy)\]
+
+is a measureable function. An initial law is a probability measure \(\mu:\mathcal{F}\to [0,1]\). A Markov chain \(X_0,X_1,...\) can be modeled using this kernel by taking
+        
+        \[ \mathbf{P}(X_{n}\in A~|~X_{n-1}=x_{n-1},...,X_0=x_0) = \int_{A}k(dy,x_{n-1})= \mathbf{P}(X_{n}\in A~|~X_{n-1}=x_{n-1}) \]
+        to represent the conditional probability that the n-th random variable lands in \(A\) given that \( x_0,...,x_{n-1} \) has occurred. We take \(X_0\) to be distributed according to the initial law \( \mu \).
+        
+        These Markov models are useful in modeling random processes whose current state depends only on the previous state:
+        
+    </p>
+        <center><a href=images/noisy_process.png>
+            <img width="80%" height="auto" src=images/noisy_process.png></a></center>
+    
+        <p>
+            
+        In this project, we first define (for arbitrary dimension \(\mathcal{X}\subset \mathbf{R}^{e_0}\) and customizable network length/depth) an initial law by modeling the CDF of a random variable and then differentiating that to obtain a density function:
+            
+    </p>
+        <center>
+        <div class="imgContainer">
+            <a href=images/init_cdf.png><img width="40%" height="40%" src=images/init_cdf.png> </a>
+            <a href=images/init_pdf.png><img width="40%" height="40%" src=images/init_pdf.png></a></div></center>
+    <p>
+        We minimize the cross entropy \(-\mathbf{E}_{dq}[\log(d\mu)] \) to minimize the KL-divergence between the two distributions. We then use this initial law to minimize the KL-divergence between the joint probability measure on 1-jumps in \(\mathcal{X}\times\mathcal{X}\) and the kernel times the initial law \(k(y|x)p(x)\). We obtain \(k\) from differentiating a more complicated Neural Network we call a G-model. This produces a Markov kernel function on \(\mathcal{X}\times\mathcal{X}\):
+    </p> 
+        
+        <center>
+            <div class="imgContainer">
+        <a href=images/kernel_func.png>
+            <img width="40%" height="auto" src=images/kernel_func.png></a>
+                <a href=images/kernel_func_param.png> <img width="40%" height="auto" src=images/kernel_func_param.png> </a>
+            </div></center>
+        
+    <p>
+        The images above are the results of training the model on samples of simple Gaussian kernel processes:
+        
+        \[ X_n=\mathcal{N}(X_{n-1},1)\]
+        
+        
+    </p> 
+
+    
+    
+    
+    <div>
     <h2>Necker Cube Surface</h2>
     <center>
     <div class="imgContainer">
@@ -48,6 +110,8 @@
     <p>
         To learn about how we got these images, I put together a SAGE jupyter notebook file <a target="_blank" rel="noopener noreferrer" href ="files/NeckerCubeSurfaceTrajectories.ipynb">here</a> and a pdf of it <a target="_blank" rel="noopener noreferrer" href ="files/NCSGeodesics.pdf">here</a>. Note that you absolutely need to have flatsurf installed in order to make this work. For instructions on how to get flatsurf installed on your specific operating system, check out <a target="_blank" rel="noopener noreferrer" href ="http://wphooper.com/flatsurf/">this informative link</a> on Dr. Pat Hooper's website.
         </p>
+        
+        </div>
         
         <h2>Brauer Algebra Idempotents</h2>
     
